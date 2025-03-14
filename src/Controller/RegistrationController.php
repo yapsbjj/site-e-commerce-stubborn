@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
-use App\Security\SecurityAuthentitacorAuthenticator;
+use App\Security\SecurityAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,7 +52,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, SecurityAuthentitacorAuthenticator::class, 'main');
+            return $security->login($user, SecurityAuthenticator::class, 'main');
         }
 
         return $this->render('registration/register.html.twig', [
